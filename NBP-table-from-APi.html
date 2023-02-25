@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: aquamarine;
+        }
+
+        #header {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .mainContainer {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            background-color: white;
+            border-radius: 20px;
+
+        }
+
+        .tableRow {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            border-bottom: 1px dotted black;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .tableRow div {
+            font-size: 0.8rem;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainContainer">
+        <div id="header">Tabela NBP nr: <span id="tableNumber"></span></div>
+        <div class="tableRow">
+            <div class="currencyCode">THB</div>
+            <div class="currencyName">bat (Tajlandia)</div>
+            <div class="currencyValue">0.1293 zł</div>
+        </div>
+    </div>
+
+
+    <script>
+        async function startApp() {
+            const apiUrl = "https://api.nbp.pl/api/exchangerates/tables/a?format=json";
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            processData(data[0]);
+        }
+
+        const processData = (data) => {
+            generateHeader(data.no);
+            generateTable(data.rates);
+        };
+
+        const generateTable = (rates) => {
+            console.log(rates);
+            const mainContainer = document.querySelector(".mainContainer");
+            rates.forEach((el) => {
+                mainContainer.appendChild(createTableRowElement(el));
+            });
+        };
+
+        const createTableRowElement = ({ code, currency, mid }) => {
+            console.log(code)
+            const tableRow = document.createElement("div");
+            tableRow.classList.add("tableRow");
+
+            const currencyCode = document.createElement("div");
+            currencyCode.classList.add("currencyCode");
+            currencyCode.innerHTML = code;
+            tableRow.appendChild(currencyCode);
+
+            const currencyName = document.createElement("div");
+            currencyName.classList.add("currencyName");
+            currencyName.innerHTML = currency;
+            tableRow.appendChild(currencyName);
+
+            const currencyValue = document.createElement("div");
+            currencyValue.classList.add("currencyValue");
+            currencyValue.innerHTML = mid + " zł";
+            tableRow.appendChild(currencyValue);
+
+            return tableRow;
+        };
+
+        const generateHeader = (tableNumber) => {
+            document.getElementById("tableNumber").innerHTML = tableNumber;
+        };
+
+        startApp();
+
+    </script>
+</body>
+
+</html>
