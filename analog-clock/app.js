@@ -21,14 +21,14 @@ class Clock {
             this.minutes = 0;
             this.hours++;
         }
-        if (this.hours === 24) {
+        if (this.hours === 12) {
             this.hours = 0;
         }
         const secondsRotation = (360 / 60) * this.seconds;
         this.second.style = `transform: rotate(${secondsRotation}deg)`;
         const minutesRotation = (360 / 60) * this.minutes;
         this.minute.style = `transform: rotate(${minutesRotation}deg)`;
-        const hoursRotation = (360 / 24) * this.hours;
+        const hoursRotation = (360 / 12) * this.hours;
         this.hour.style = `transform: rotate(${hoursRotation}deg)`;
     };
 }
