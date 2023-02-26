@@ -99,5 +99,37 @@ main{
 }
 
 .summary{
-    
+    width: 80%;
+    margin: 0 auto;
 }
+.result-part{
+    display: flex;
+    align-items: center;
+}
+
+
+.result-part p{
+    opacity: 1;
+    font-weight: 800;
+    width: 50%;
+        padding: 1rem 0.5rem;
+            margin: 0;
+}
+
+
+.result-part p:nth-child(2) {
+    text-align: end;
+}
+
+
+.reaction {
+    color: var(--light-red);
+    padding: 0;
+    margin: 0;
+}
+
+.reaction-part{
+    height: 3rem;
+    background: hsla(0, 100%, 67%, 10%);
+}
+
