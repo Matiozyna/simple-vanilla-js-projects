@@ -36,6 +36,8 @@ body{
 
 main{
     width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .result{
@@ -102,34 +104,117 @@ main{
     width: 80%;
     margin: 0 auto;
 }
+
+.summary > p{
+    color: var(--dark-gray-blue);
+    font-weight: bolder;
+}
+
 .result-part{
+    height: 3.2rem;
+    border-radius: 0.6rem;
+    margin-bottom: 0.7rem;
     display: flex;
     align-items: center;
 }
 
 
 .result-part p{
+    vertical-align: middle;
     opacity: 1;
-    font-weight: 800;
+    font-size: 1rem;
     width: 50%;
-        padding: 1rem 0.5rem;
-            margin: 0;
-}
-
-
-.result-part p:nth-child(2) {
-    text-align: end;
-}
-
-
-.reaction {
-    color: var(--light-red);
-    padding: 0;
+    padding: 1rem 0.5rem;
     margin: 0;
 }
 
-.reaction-part{
-    height: 3rem;
-    background: hsla(0, 100%, 67%, 10%);
+
+.points-earned {
+    text-align: end;
+    display: inline-block;
 }
 
+.points-earned span{
+    margin: 0 0.1rem;
+    font-weight: 800;
+}
+
+.points-earned span:nth-child(2),  .points-earned span:nth-child(3){
+    color: hsla(224, 30%, 27%, 50%);
+}
+
+.category{
+    margin-left: 0.2rem;
+}
+
+
+.icon{
+    position: relative;
+    top: 0.25rem;
+}
+
+.reaction {
+    color: var(--light-red);
+}
+
+.reaction-part{
+    background: hsla(0, 100%, 67%, 10%);
+}
+.memory-part {
+    background-color: hsla(39, 100%, 56%, 10%);
+}
+
+.memory {
+    color: var(--orangey-yellow);
+}
+
+.verbal-part{
+    background-color: hsla(166, 100%, 37%,10%);
+}
+.verbal{
+    color: var(--green-teal);
+}
+
+.visual-part {
+    background-color: hsla(234, 85%, 45%, 10%);
+}
+
+.visual {
+    color: var(--cobalt-blue);
+}
+
+.continue-button{
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 3.2rem;
+    border-radius: 2rem;
+    background-color: var(--dark-gray-blue);
+    color: white;
+    font-size: 1.15rem;
+    margin-top: 0.4rem;
+}
+
+@media only screen and (min-width: 800px){
+    main{
+        grid-template-columns: 1fr 1.3fr;
+        width: 50%;
+        box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+        border-radius: 1.5rem;
+    }
+    body{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .result{
+        height: 100%;
+        border-radius: 1.5rem;
+    }
+    .summary{
+       padding: 2rem;
+       width: 100%;
+    }
+
+}
