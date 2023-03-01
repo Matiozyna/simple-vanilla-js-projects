@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
+
+:root{
+    --dark-cyan: hsl(158, 36%, 37%);
+    --cream: #F2EAE2;
+    --very-dark-blue: hsl(212, 21%, 14%);
+    --dark-grayish-blue: hsl(228, 12%, 48%);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Montserrat';
+    margin: 0;
+    padding: 0;
+    background-color: var(--cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p{
+    font-size: 0.875rem;
+}
+
+
+main{
+    display: grid;
+    grid-template-rows: 4fr 6fr;
+    background-color: white;
+    margin: 1.8rem  1rem;
+    border-radius: 10px;
+}
+
+.image{
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    background: url("images/image-product-mobile.jpg");
+    background-size: cover;
+}
+
+.content{
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.perfume{
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    margin-bottom: 0.8rem;
+}
+
+.title{
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 700;
+    font-family: "Fraunces";
+    margin: 0;
+    padding: 0;
+}
+
+.description {
+    color: var(--dark-grayish-blue);
+    line-height: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.price__current{
+    font-family: "Fraunces";
+    font-weight: 700;
+    color: var(--dark-cyan);
+    font-size: 2rem;
+    line-height: 2rem;
+    vertical-align: middle;
+}
+
+.price__old{
+    text-decoration: line-through;
+    font-size: 0.8em;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 1rem;
+    color: var(--dark-grayish-blue);
+}
+
+.price{
+    margin-bottom: 1.4rem;
+}
+
+.add-to-cart{
+    color: white;
+    background-color: var(--dark-cyan);
+    height: 3rem;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.add-to-cart span {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.add-to-cart:active{
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    background-color: #1A4032;
+}
+
+@media screen and (min-width: 750px) {
+    main{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
+        width: 600px;
+        height: 450px;
+        padding: 0;
+    }
+
+    .image{
+        background: url("images/image-product-desktop.jpg");
+        background-size: cover;
+        height: 100%;
+        margin-bottom: 0;
+        border-radius: 10px 0 0 10px;
+    }
+    .content{
+        height: 100%;
+        margin-bottom: 0;
+    }
+}
