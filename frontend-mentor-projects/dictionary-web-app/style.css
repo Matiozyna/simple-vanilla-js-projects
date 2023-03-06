@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'inconsolata';
+  src: url("./assets/fonts/inconsolata/Inconsolata-VariableFont_wdth,wght.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+body{
+  font-family: "inconsolata";
+}
+
 :root {
   --light-gray: #f4f4f4;
 }
@@ -14,6 +24,8 @@
   background-color: inherit;
   border: none;
   outline: none;
+  color: black;
+  font-weight: bold;
 }
 
 #findWord {
